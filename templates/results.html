@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="menu-container">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav class="menu">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </nav>
+    </div>
+
+    <h1 class="second-header">Daily Trivia</h1>
+
+    <!-- Ad Spaces -->
+    <div class="ad-space-side left">Ad Space</div>
+    <div class="ad-space-side right">Ad Space</div>
+
+    <div class="results-container">
+        <p class="results-text">Total players today: <strong>{{ total_players }}</strong></p>
+        <p class="results-text">You got <strong>{{ correct_count }}</strong> out of 5 correct!</p>
+
+        <!-- Başarı Mesajı -->
+        {% if correct_count == 5 %}
+            <p class="result-message result-perfect">🎯 Perfect Score! You got everything correct!</p>
+        {% elif correct_count == 4 %}
+            <p class="result-message result-great">💪 Great Job! Almost perfect!</p>
+        {% elif correct_count == 3 %}
+            <p class="result-message result-good">👍 Good Effort! Keep it up!</p>
+        {% else %}
+            <p class="result-message result-try-again">🚀 Don't Give Up! Try again tomorrow!</p>
+        {% endif %}
+
+        <p id="countdown-text">New questions in: <span id="countdown-timer"></span></p>
+    </div>
+
+    <div class="ad-space">Ad Space</div>
+
+    <footer class="footer-question">
+        <p>© {{ current_year }} Daily Trivia. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            let menu = document.querySelector(".menu");
+            menu.classList.toggle("show-menu");
+        }
+        function startCountdown(seconds) {
+        let countdownElement = document.getElementById("countdown-timer");
+        let countdownText = document.getElementById("countdown-text");
+
+        function updateCountdown() {
+            if (seconds <= 0) {
+                countdownText.innerHTML = "🎉 New questions are available!";
+                return;
+            }
+            let hours = Math.floor(seconds / 3600);
+            let minutes = Math.floor((seconds % 3600) / 60);
+            let secs = seconds % 60;
+            countdownElement.innerHTML = `${hours}h ${minutes}m ${secs}s`;
+            seconds--;
+            setTimeout(updateCountdown, 1000);
+        }
+
+        updateCountdown();
+    }
+
+    startCountdown({{ time_remaining }});
+    </script>
+
+</body>
+</html>

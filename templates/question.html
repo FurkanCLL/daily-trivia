@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question {{ question_index + 1 }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <div class="ad-space-side left">Ad Space</div>
+    <div class="ad-space-side right">Ad Space</div>
+
+    <h1 class="display-3 fw-bold second-header">Daily Trivia</h1>
+
+    <h2 class="category-text">Question {{ question_index + 1 }} of {{ total_questions }} (Category: {{ question.category if question.category else 'General' }})</h2>
+    <h2 class="question-text">{{ question.question_text }}</h2>
+
+    <form id="quiz-form" action="{{ url_for('submit_answer', question_index=question_index) }}" method="POST" data-correct="{{ question.correct_option }}">
+        <label class="quiz-option-label">
+            <input type="radio" name="answer" value="A" required>
+            <span class="quiz-option-button">A) {{ question.option_a }}</span>
+        </label>
+        <label class="quiz-option-label">
+            <input type="radio" name="answer" value="B" required>
+            <span class="quiz-option-button">B) {{ question.option_b }}</span>
+        </label>
+        <label class="quiz-option-label">
+            <input type="radio" name="answer" value="C" required>
+            <span class="quiz-option-button">C) {{ question.option_c }}</span>
+        </label>
+        <label class="quiz-option-label">
+            <input type="radio" name="answer" value="D" required>
+            <span class="quiz-option-button">D) {{ question.option_d }}</span>
+        </label>
+
+        <br>
+        <button type="submit" class="quiz-submit-button" id="submit-button">Submit</button>
+        <button type="submit" class="quiz-next-button" id="next-button" style="display: none;">
+            {% if question_index + 1 == total_questions %} See Results {% else %} Next {% endif %}
+        </button>
+    </form>
+
+    <div class="ad-space-mobil">Ad Space</div>
+
+    <footer class="footer-question">
+        <p>© {{ current_year }} Daily Trivia. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>

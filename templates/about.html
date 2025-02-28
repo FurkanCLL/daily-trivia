@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Daily Trivia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="menu-container">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav class="menu">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </nav>
+    </div>
+
+    <h1 class="second-header">About</h1>
+
+    <div class="about-container">
+        <section class="about-section">
+            <h2>📌 <span class="highlight">What is Daily Trivia?</span></h2>
+            <p>Daily Trivia is an exciting quiz game where you answer 5 new questions every day. The questions are quite interesting and come from completely random categories, making each game unique. Don't forget to come back tomorrow for a brand-new set of questions!</p>
+        </section>
+
+        <section class="about-section">
+            <h2>👤 <span class="highlight">About the Creator</span></h2>
+            <p>Hello, I'm Furkan Ciloglu, a Computer Systems student at Riga Technical University. I developed this site to bring an engaging and fun trivia experience to life. Hope you have fun! 😊</p>
+        </section>
+
+        <!-- Social Media Icons -->
+        <ul class="social-icons">
+        <li>
+            <a href="https://github.com/FurkanCLL" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/furkancilogluu" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </li>
+        </ul>
+    </div>
+
+    <footer class="footer-about">
+        <p>© {{ current_year }} Daily Trivia. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            let menu = document.querySelector(".menu");
+            menu.classList.toggle("show-menu");
+        }
+    </script>
+
+</body>
+</html>
