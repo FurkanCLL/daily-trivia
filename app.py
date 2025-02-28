@@ -146,4 +146,4 @@ if __name__ == '__main__':
         db.create_all()
         check_and_import_questions()
         select_daily_questions()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)

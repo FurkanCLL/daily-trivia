@@ -1,7 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 db = SQLAlchemy()
+UTC = timezone.utc
 
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -17,7 +18,7 @@ class Question(db.Model):
 class DailyQuestion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question_id = db.Column(db.Integer, db.ForeignKey('question.id'), nullable=False)
-    date = db.Column(db.Date, default=lambda: datetime.now(UTC))
+    date = db.Column(db.Date, default=lambda: datetime.now(UTC))  # UTC hatası düzeltilmiş hali
 
 class Stats(db.Model):
     date = db.Column(db.Date, primary_key=True)
