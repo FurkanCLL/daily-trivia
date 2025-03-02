@@ -2,7 +2,7 @@ import os
 from datetime import date, datetime, timedelta
 import pytz
 import random
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, g
 from models import db, Question, DailyQuestion, Stats
 from import_csv import import_questions_from_csv
 from dotenv import load_dotenv
@@ -10,13 +10,24 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 
 
 db.init_app(app)
+
+@app.before_request
+def check_new_day():
+    today = date.today()
+    last_checked = getattr(g, "last_checked_day", None)
+
+    if last_checked != today:
+        print("New day detected, selecting new questions...")
+        select_daily_questions()
+        g.last_checked_day = today
+
 
 def check_and_import_questions():
     question_count = Question.query.count()
@@ -145,5 +156,4 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
         check_and_import_questions()
-        select_daily_questions()
     app.run(host="0.0.0.0", port=5000)

@@ -18,7 +18,7 @@ class Question(db.Model):
 class DailyQuestion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question_id = db.Column(db.Integer, db.ForeignKey('question.id'), nullable=False)
-    date = db.Column(db.Date, default=lambda: datetime.now(UTC))  # UTC hatası düzeltilmiş hali
+    date = db.Column(db.Date, default=lambda: datetime.now(UTC))
 
 class Stats(db.Model):
     date = db.Column(db.Date, primary_key=True)

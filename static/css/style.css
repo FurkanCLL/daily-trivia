@@ -172,7 +172,6 @@ body {
     cursor: pointer;
     transition: background 0.3s;
     margin-top: 15px;
-    margin-left: 30px;
 
 }
 .quiz-submit-button:hover, .quiz-next-button:hover {
