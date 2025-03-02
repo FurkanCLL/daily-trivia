@@ -316,6 +316,7 @@ body {
         text-align: center;
         font-size: 1.1rem;
         line-height: 1.5;
+        margin-top: 10px;
     }
     .question-text {
         font-size: 1.3rem;
@@ -358,6 +359,9 @@ body {
         width: 45px;
         height: 45px;
         font-size: 1.8rem;
+    }
+    .footer-mobil {
+        display: none;
     }
     .footer-about {
         position: fixed;
