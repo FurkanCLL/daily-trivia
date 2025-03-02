@@ -9,10 +9,8 @@
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
 <body>
-    <div class="ad-space-side left">Ad Space</div>
-    <div class="ad-space-side right">Ad Space</div>
 
-    <h1 class="display-3 fw-bold second-header">Daily Trivia</h1>
+    <h1 class="second-header">Daily Trivia</h1>
 
     <h2 class="category-text">Question {{ question_index + 1 }} of {{ total_questions }} (Category: {{ question.category if question.category else 'General' }})</h2>
     <h2 class="question-text">{{ question.question_text }}</h2>
@@ -42,9 +40,8 @@
         </button>
     </form>
 
-    <div class="ad-space-mobil">Ad Space</div>
 
-    <footer class="footer-question">
+    <footer class="footer-about">
         <p>© {{ current_year }} Daily Trivia. All rights reserved.</p>
     </footer>
 

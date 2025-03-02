@@ -13,19 +13,11 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-/* Header */
-.header {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-}
 
 .second-header {
     font-size: 3.5rem;
-    position: absolute;  /* En yukarı sabitleyelim */
-    top: 0px; /* Sayfanın üstüne çekiyoruz */
+    position: absolute;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
@@ -110,7 +102,7 @@ body {
 /* Question Page Styling */
 .category-text {
     font-size: 1.3rem;
-    margin-top: 40px; /* Soruları yukarı çekiyoruz */
+    margin-top: 25px; /* Soruları yukarı çekiyoruz */
     margin-bottom: 3px;
 }
 
@@ -229,7 +221,7 @@ body {
 /* About Page Styling */
 .about-container {
     max-width: 90%;
-    margin: 80px auto;
+    margin-top: 120px;
     padding: 30px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -285,60 +277,14 @@ body {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Ad Spaces */
-.ad-space {
-    height: 85px;
-    width: 65vw;
-    background-color: #444;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #EEE;
-    position: absolute;
-    bottom: 30px;
-    border-radius: 15px;
-}
-.ad-space-side {
-    width: 100px;
-    height: 80vh;
-    background-color: #444;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #EEE;
-    position: absolute;
-    top: 10vh;
-    border-radius: 15px;
-}
-.ad-space-side.left {
-    left: 10px;
-}
-.ad-space-side.right {
-    right: 10px;
-}
-
-.ad-space-mobil {
-    display: none;
-}
-
 /* Footer */
 .footer-index {
     text-align: center;
     font-size: 0.9rem;
     color: #bbb;
     padding: 10px;
-    position: absolute;
+    position: fixed;
     bottom: -25px;
-    width: 100%;
-}
-
-.footer-question {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #bbb;
-    padding: 10px;
-    position: absolute;
-    bottom: -20px;
     width: 100%;
 }
 
@@ -373,9 +319,6 @@ body {
     .result-message {
         font-size: 1.6rem;
     }
-    .ad-space-side {
-        display: none;
-    }
     .question-container {
         width: 90%;
         margin-bottom: 5vh;
@@ -398,28 +341,8 @@ body {
         height: 45px;
         font-size: 1.8rem;
     }
-    .ad-space {
-        width: 80vw;
-    }
-    .ad-space-mobil {
-        height: 80px;
-        max-width: none;
-        width: 80vw;
-        background-color: #444;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #EEE;
-        position: absolute;
-        bottom: 18px;
-        border-radius: 15px;
-    }
-    .footer-question {
-        display: none;
-    }
     .footer-about {
-        position: relative;
+        position: fixed;
         margin-top: 20px;
-        bottom: -40;
     }
 }
