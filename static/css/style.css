@@ -24,6 +24,15 @@ body {
 
 .second-header {
     font-size: 3.5rem;
+    position: absolute;  /* En yukarı sabitleyelim */
+    top: 0px; /* Sayfanın üstüne çekiyoruz */
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+.results-header {
+    font-size: 3.5rem;
     position: absolute;
     top: 30px;
     left: 50%;
@@ -100,16 +109,17 @@ body {
 
 /* Question Page Styling */
 .category-text {
-    margin-top: 30px;
-}
-.question-text {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    line-height: 1.4;
-    margin-top: 0px;
+    font-size: 1.3rem;
+    margin-top: 40px; /* Soruları yukarı çekiyoruz */
+    margin-bottom: 3px;
 }
 
+.question-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px; /* Boşluğu azalttık */
+    line-height: 1.2;
+}
 .question-container {
     background: rgba(0, 0, 0, 0.7);
     padding: 30px;
@@ -117,13 +127,13 @@ body {
     box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
     width: 50%;
     text-align: center;
+    margin-top: 50px;
 }
-
 .quiz-option-label {
-    display: block;
+    display: flex;
+    justify-content: center;
     width: 100%;
     margin: 10px 0;
-    text-align: center;
 }
 .quiz-option-label input {
     display: none;
@@ -131,6 +141,7 @@ body {
 .quiz-option-button {
     display: block;
     width: 100%;
+    max-width: 400px;
     padding: 15px;
     border-radius: 12px;
     background: transparent;
@@ -139,6 +150,7 @@ body {
     cursor: pointer;
     border: 2px solid white;
     transition: background 0.3s ease-in-out, transform 0.2s;
+    text-align: center;
 }
 .quiz-option-button:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -171,8 +183,12 @@ body {
     font-size: 1.2rem;
     cursor: pointer;
     transition: background 0.3s;
-    margin-top: 15px;
-
+    margin-top: 5px;
+    margin-left: auto; /* Butonları ortalamak için */
+    margin-right: auto;
+    display: block; /* Tam ortalama sağlamak için */
+    width: 100%;
+    max-width: 120px;
 }
 .quiz-submit-button:hover, .quiz-next-button:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -272,7 +288,7 @@ body {
 /* Ad Spaces */
 .ad-space {
     height: 85px;
-    width: 65%;
+    width: 65vw;
     background-color: #444;
     display: flex;
     justify-content: center;
@@ -383,20 +399,20 @@ body {
         font-size: 1.8rem;
     }
     .ad-space {
-        width: 80%
+        width: 80vw;
     }
     .ad-space-mobil {
-    height: 80px;
-    max-width: none;
-    width: 80%;
-    background-color: #444;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #EEE;
-    position: absolute;
-    bottom: 18px;
-    border-radius: 15px;
+        height: 80px;
+        max-width: none;
+        width: 80vw;
+        background-color: #444;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #EEE;
+        position: absolute;
+        bottom: 18px;
+        border-radius: 15px;
     }
     .footer-question {
         display: none;
