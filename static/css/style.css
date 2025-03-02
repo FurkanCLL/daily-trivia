@@ -220,8 +220,9 @@ body {
 
 /* About Page Styling */
 .about-container {
+    position: relative;
     max-width: 90%;
-    margin-top: 120px;
+    margin-top: 100px;
     padding: 30px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -243,6 +244,10 @@ body {
     margin: 0 auto;
     max-width: 600px;
 }
+.first-about {
+    margin-bottom: 8px;
+}
+
 
 /* Social Media Icons */
 .social-icons {
@@ -323,19 +328,28 @@ body {
         width: 90%;
         margin-bottom: 5vh;
     }
-    .about-container {
-        width: 95%;
-        padding: 20px;
+    .quiz-option-button {
+        max-width: 300px;
+        padding: 10px;
+        border-radius: 10px;
     }
-
+    .quiz-submit-button, .quiz-next-button {
+        padding: 8px 16px;
+    }
+    .about-container {
+        width: 80%;
+        padding: 12px;
+        border-radius: 8px;
+    }
     .about-section h2 {
         font-size: 1.5rem;
     }
-
+    .about-section p {
+        font-size: 1rem;
+    }
     .social-icons {
         gap: 10px;
     }
-
     .social-icons a {
         width: 45px;
         height: 45px;
