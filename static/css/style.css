@@ -107,7 +107,7 @@ body {
 }
 
 .question-text {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: bold;
     margin-bottom: 10px; /* Boşluğu azalttık */
     line-height: 1.2;
@@ -133,7 +133,8 @@ body {
 .quiz-option-button {
     display: block;
     width: 100%;
-    max-width: 400px;
+    min-width: 200px;
+    max-width: 350px;
     padding: 15px;
     border-radius: 12px;
     background: transparent;
@@ -180,6 +181,7 @@ body {
     margin-right: auto;
     display: block;
     width: 100%;
+    min-wdth: 100px;
     max-width: 120px;
 }
 .quiz-submit-button:hover, .quiz-next-button:hover {
@@ -332,13 +334,15 @@ body {
         margin-bottom: 5vh;
     }
     .quiz-option-button {
-        max-width: 300px;
+        min-width: 200px;
+        max-width: 250px;
         padding: 8px;
         border-radius: 10px;
     }
     .quiz-submit-button, .quiz-next-button {
         padding: 6px 12px;
         margin-top: 0px;
+        max-width: 100px;
     }
     .about-container {
         max-width: 95%;
