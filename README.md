@@ -1,6 +1,6 @@
 # Daily Trivia  
 
-🔗 [Visit Daily Trivia](https://playdailytrivia.com)
+## 🔗 [Visit Daily Trivia](https://playdailytrivia.com)
 
 Daily Trivia is a fun and interactive quiz game where you answer 5 new questions every day!  
 The questions are randomly selected from various categories, providing a fresh challenge each day.  
