@@ -65,6 +65,15 @@ def select_daily_questions():
     db.session.commit()
 
 
+@app.route('/robots.txt')
+def robots():
+    content = """User-agent: *
+Disallow:
+
+Sitemap: https://playdailytrivia.com/sitemap.xml"""
+
+    return Response(content, mimetype='text/plain')
+
 @app.route('/sitemap.xml')
 def sitemap():
     xml_content = """<?xml version="1.0" encoding="UTF-8"?>
