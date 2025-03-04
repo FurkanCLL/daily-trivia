@@ -78,6 +78,22 @@ def sitemap():
             <priority>0.8</priority>
         </url>
         <url>
+            <loc>https://playdailytrivia.com/questions/1</loc>
+            <priority>0.8</priority>
+        </url>
+        <url>
+            <loc>https://playdailytrivia.com/questions/2</loc>
+            <priority>0.8</priority>
+        </url>
+        <url>
+            <loc>https://playdailytrivia.com/questions/3</loc>
+            <priority>0.8</priority>
+        </url>
+        <url>
+            <loc>https://playdailytrivia.com/questions/4</loc>
+            <priority>0.8</priority>
+        </url>
+        <url>
             <loc>https://playdailytrivia.com/results</loc>
             <priority>0.8</priority>
         </url>
