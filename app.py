@@ -2,7 +2,7 @@ import os
 from datetime import date, datetime, timedelta
 import pytz
 import random
-from flask import Flask, render_template, request, redirect, url_for, session, g
+from flask import Flask, render_template, request, redirect, url_for, session, g, Response
 from models import db, Question, DailyQuestion, Stats
 from import_csv import import_questions_from_csv
 from dotenv import load_dotenv
@@ -64,6 +64,26 @@ def select_daily_questions():
 
     db.session.commit()
 
+
+@app.route('/sitemap.xml')
+def sitemap():
+    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <url>
+            <loc>https://playdailytrivia.com/</loc>
+            <priority>1.0</priority>
+        </url>
+        <url>
+            <loc>https://playdailytrivia.com/questions/0</loc>
+            <priority>0.8</priority>
+        </url>
+        <url>
+            <loc>https://playdailytrivia.com/results</loc>
+            <priority>0.8</priority>
+        </url>
+    </urlset>"""
+
+    return Response(xml_content, mimetype='application/xml')
 
 @app.route('/')
 def home():
