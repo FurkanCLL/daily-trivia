@@ -193,8 +193,11 @@ def about():
 
 
 @app.context_processor
-def inject_year():
-    return {'current_year': datetime.now().year}
+def inject_globals():
+    return {
+        'current_year': datetime.now().year,
+        'GOOGLE_ANALYTICS_ID': os.getenv('GOOGLE_ANALYTICS_ID')
+    }
 
 
 if __name__ == '__main__':

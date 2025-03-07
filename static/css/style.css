@@ -102,14 +102,14 @@ body {
 /* Question Page Styling */
 .category-text {
     font-size: 1.3rem;
-    margin-top: 25px; /* Soruları yukarı çekiyoruz */
+    margin-top: 25px;
     margin-bottom: 3px;
 }
 
 .question-text {
     font-size: 1.7rem;
     font-weight: bold;
-    margin-bottom: 10px; /* Boşluğu azalttık */
+    margin-bottom: 10px;
     line-height: 1.2;
 }
 .question-container {
