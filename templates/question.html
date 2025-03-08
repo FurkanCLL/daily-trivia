@@ -7,11 +7,18 @@
     <meta name="description" content="Test your knowledge with Question {{ question_index + 1 }} in Daily Trivia! Can you answer it correctly?">
     <meta name="keywords" content="trivia, daily trivia, quiz, question {{ question_index + 1 }}, {{ question.category if question.category else 'general knowledge' }}">
     <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='android-chrome-192x192.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+
+    <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
-
 
     {% if GOOGLE_ANALYTICS_ID %}
     <!-- Google Analytics -->
@@ -24,7 +31,6 @@
     </script>
     <!-- End Google Analytics -->
     {% endif %}
-
 </head>
 <body>
 
@@ -58,11 +64,9 @@
         </button>
     </form>
 
-
     <footer class="footer-about">
         <p>© {{ current_year }} Daily Trivia. All rights reserved.</p>
     </footer>
-
 
 </body>
 </html>
