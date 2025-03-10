@@ -166,18 +166,18 @@ def show_results():
     correct_count = session.get('correct_count', 0)
     user_answers = session.get('user_answers', {})
 
-    if "has_submitted" not in session:
-        daily_stat = Stats.query.filter_by(date=today).first()
-        if not daily_stat:
-            daily_stat = Stats(date=today, total_players=1)
-            db.session.add(daily_stat)
-        else:
-            daily_stat.total_players += 1
-        db.session.commit()
-
-        session["has_submitted"] = True
 
     daily_stat = Stats.query.filter_by(date=today).first()
+    if not daily_stat:
+        daily_stat = Stats(date=today, total_players=1)
+        db.session.add(daily_stat)
+        db.session.commit()
+    elif "has_submitted" not in session:
+        daily_stat.total_players += 1
+        db.session.commit()
+        session["has_submitted"] = True
+
+    total_players = daily_stat.total_players if daily_stat else 1
 
     utc_tz = pytz.utc
     now = datetime.now(utc_tz)
@@ -186,7 +186,7 @@ def show_results():
 
     return render_template('results.html',
                            correct_count=correct_count,
-                           total_players=daily_stat.total_players,
+                           total_players=total_players,
                            time_remaining=time_remaining)
 
 @app.route('/about')
